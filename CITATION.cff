@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use or build on this simulator, please cite it as below."
+title: "Life is Life: an evolutionary cellular simulator"
+type: software
+license: MIT
+authors:
+  - family-names: Brunori
+    given-names: Davide
+    affiliation: "University of Genoa"
+date-released: 2026-10-20

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Life is Life: a variant of the Game of Life where specialized cells vote, learn from pain and evolve.">
+<title>Life is Life</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Crect width='4' height='4' fill='%230d0b12'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23ff3b3b'/%3E%3Crect x='2' y='1' width='1' height='1' fill='%23ff8fd0'/%3E%3Crect x='1' y='2' width='1' height='1' fill='%233fa2ff'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23ff3b3b'/%3E%3C/svg%3E">
+</head>
+<body>
+<h1>Life is Life</h1>
+<p class="sub">It starts from a single digestive cell. Cells reproduce, specialize, vote on what to do and learn from pain. Click an organism to inspect it; Shift + click to drop food.</p>
+<p class="sub credit">Idea by Davide Brunori, University of Genoa, 2026.</p>
+
+<div class="wrap">
+  <div class="dish">
+    <canvas id="world"></canvas>
+    <div class="legend">
+      <span><i class="sw digestive"></i>digestive</span>
+      <span><i class="sw tactile"></i>tactile</span>
+      <span><i class="sw visual"></i>visual</span>
+      <span><i class="sw food"></i>food</span>
+    </div>
+  </div>
+  <div class="side">
+    <div class="card">
+      <div class="bar">
+        <button id="play" class="primary">Pause</button>
+        <button id="step">Step</button>
+        <button id="reset">Restart</button>
+      </div>
+      <div class="bar">
+        <label for="speed">Speed <input id="speed" type="range" min="1" max="40" value="4"></label>
+        <label for="regen">Food <input id="regen" type="range" min="0.2" max="2.5" step="0.1" value="1"></label>
+        <label for="plasticity">Plasticity <input id="plasticity" type="range" min="0" max="1" step="0.05" value="0.5"></label>
+        <label for="inoculum">Start with <select id="inoculum"><option value="1">1 cell</option><option value="40">40 cells</option></select></label>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Ecosystem</h2>
+      <div class="kv" id="stats"></div>
+      <canvas id="chart" width="560" height="140"></canvas>
+      <div class="note">purple: species · green: intelligence</div>
+    </div>
+    <div class="card">
+      <h2>Selected organism</h2>
+      <div id="inspector" class="note">Click a cell in the dish.</div>
+    </div>
+    <div class="card">
+      <h2>Milestones</h2>
+      <div class="milestones" id="milestones"></div>
+    </div>
+  </div>
+</div>
+
+<script src="sim.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
